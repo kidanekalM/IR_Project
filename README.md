@@ -1,0 +1,1 @@
+# Ge'ez , Geez stemmer and Information retrieval system
