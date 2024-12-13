@@ -27,9 +27,3 @@ def reverse_transliterate(word):
     return transliterated_text
 
 ################################################
-amharic_text = "አሀሁሂሃሄህሆ ለሉሊላሌልሎ መሙሚማሜምሞ"
-latin_text = transliterate(amharic_text)
-print(latin_text)
-amharic_text = reverse_transliterate(latin_text)
-print(amharic_text)
-"ኣኻኹኺኻኼኽኾ ለሉሊላሌልሎ መሙሚማሜምሞ"
