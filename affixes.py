@@ -19,7 +19,8 @@ suffix= [
         "e",
         "he",
         "u",
-        "en"
+        "en",
+        "I"
     ]
 infix =[""]
 
