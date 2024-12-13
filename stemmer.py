@@ -24,6 +24,17 @@ def stem(word):
     
     return word
 
-stemmed_nouns = [stem(noun) for noun in (nouns[0]).split(" ")]
+def measure_accuracy(stemmer, nouns, correct_stems): 
+    predicted_stems = [transliterate(stemmer(noun)) for noun in nouns] 
+    transliterated_correct_stems = [transliterate(stem) for stem in correct_stems] 
+    for predicted, correct in zip(predicted_stems, transliterated_correct_stems):
+        print(predicted, correct)
+    correct_count = sum([1 for predicted, correct in zip(predicted_stems, transliterated_correct_stems) if predicted == correct])
+    accuracy = correct_count / len(nouns)
+    return accuracy
 
-print(stemmed_nouns)
+stemmed_nouns = [stem(noun) for noun in (nouns[0]).split(" ")]
+stemmed_true = [ "ጻድቅ", "ኃጥእ", "መዝሙር", "ዳዊት", "ብፁዕ", "ብእስ", "ምክር", "ረሲዓ", "ፍኖት", "ኃጥእ", "መንበር", "መስተሳልቅ", "ሕግ", "እግዚአብሔር", "ሥምር", "መዕልት", "ሌሊት", "ዕፅ", "ሙሓዝ", "ማይ", "ፍሬ", "ጊዜ", "መሬት", "ነፍስ", "ምድር", "ምክር", "ጻድቅ", "ፍኖት", "ኃጥእ"]
+
+print(measure_accuracy(stem, nouns[0].split(" "), stemmed_true))
+# print(stemmed_nouns)
