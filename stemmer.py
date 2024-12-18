@@ -5,19 +5,20 @@ from affixes import prefix, suffix, infix
 def stem(word):
     word = transliterate(word)
 
-    for pre in prefix:
-        if word.startswith(pre):
-            word = word[len(pre):]
-            break
-    
     for suf in suffix:
         if word.endswith(suf):
             word = word[:-len(suf)]
+            print("suf",word)
             break
-    
+    for pre in prefix:
+        if word.startswith(pre):
+            word = word[len(pre):]
+            print("pre",word)
+            break
     for inf in infix:
         if inf in word:
             word = word.replace(inf, "")
+            print(word)
             break
     
     word = reverse_transliterate(word)
@@ -33,8 +34,19 @@ def measure_accuracy(stemmer, nouns, correct_stems):
     accuracy = correct_count / len(nouns)
     return accuracy
 
-stemmed_nouns = [stem(noun) for noun in (nouns[0]).split(" ")]
-stemmed_true = [ "ጻድቅ", "ኃጥእ", "መዝሙር", "ዳዊት", "ብፁዕ", "ብእስ", "ምክር", "ረሲዓ", "ፍኖት", "ኃጥእ", "መንበር", "መስተሳልቅ", "ሕግ", "እግዚአብሔር", "ሥምር", "መዕልት", "ሌሊት", "ዕፅ", "ሙሓዝ", "ማይ", "ፍሬ", "ጊዜ", "መሬት", "ነፍስ", "ምድር", "ምክር", "ጻድቅ", "ፍኖት", "ኃጥእ"]
+# stemmed_nouns = [stem(noun) for noun in (nouns[0]).split(" ")]
+# stemmed_true = [ "ጻድቅ", "ኃጥእ", "መዝሙር", "ዳዊት", "ብፁዕ", "ብእስ", "ምክር", "ረሲዓ", "ፍኖት", "ኃጥእ", "መንበር", "መስተሳልቅ", "ሕግ", "እግዚአብሔር", "ሥምር", "መዕልት", "ሌሊት", "ዕፅ", "ሙሓዝ", "ማይ", "ፍሬ", "ጊዜ", "መሬት", "ነፍስ", "ምድር", "ምክር", "ጻድቅ", "ፍኖት", "ኃጥእ"]
 
-print(measure_accuracy(stem, nouns[0].split(" "), stemmed_true))
+# print(measure_accuracy(stem, nouns[0].split(" "), stemmed_true))
 # print(stemmed_nouns)
+
+
+
+
+while True:
+    word = input("Enter a word to be stemmed: ")
+    print(stem(word))
+    print(len(stem(word)))
+
+
+
