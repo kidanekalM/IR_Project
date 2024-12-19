@@ -1,17 +1,19 @@
 
 prefix= [
-        "wa", # and 
+        "we", # and 
         "ze", # Posession of 
         "be", # place of / while 
         "y",# ይ Verb - to do
         "ta",# ታ verb to do for female
-        "i" # negation [ not + verb ]
+        "i", # negation [ not + verb ]
+        "t" ,
+        "Im" 
 
     ]
 suffix= [
+        "ka",# posession men / you did 
         "ni",
         "ye", # posession ~ mine
-        "ka",# posession men / you did 
         "ki", # posession women / you did 
         "kemu", # posession plural men
         "kene", 
@@ -34,16 +36,17 @@ suffix= [
         "yat",# plural who performs an action for women
         "an", # plural men 3rd person
         "at",# plural who performs an action for women 3rd person
+        "o",
         
     ]
 infix = [
-    "a", # "አ" 
-    "u", # "ኡ" 
-    "i", # "ኢ"
-    "a", # "ኣ"
-    "E", # "ኤ"
-    "I", # "እ"
-    "o", # "ኦ"
-    "e", # "ኧ"
+    #"a", # "አ" 
+    #"u", # "ኡ" 
+    #"i", # "ኢ"
+    #"a", # "ኣ"
+    #"E", # "ኤ"
+    #"I", # "እ"
+    #"o", # "ኦ"
+    #"e", # "ኧ"
     ]
 
