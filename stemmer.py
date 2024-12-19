@@ -1,28 +1,30 @@
 from transliterate import transliterate, reverse_transliterate
 from nouns import nouns
 from affixes import prefix, suffix, infix
+from exceptions import exceptions
 
 def stem(word):
     word = transliterate(word)
-
+    print(word)
+    
     for suf in suffix:
         if word.endswith(suf):
             word = word[:-len(suf)]
             print("suf",word)
-            break
+            
     for pre in prefix:
         if word.startswith(pre):
             word = word[len(pre):]
-            print("pre",word)
-            break
+            # print("pre",word)
+            
     for inf in infix:
         if inf in word:
             word = word.replace(inf, "")
-            print(word)
-            break
-    
+            # print("word")
+    if word in exceptions.keys():
+        word = exceptions[word]
+
     word = reverse_transliterate(word)
-    
     return word
 
 def measure_accuracy(stemmer, nouns, correct_stems): 
@@ -43,10 +45,10 @@ def measure_accuracy(stemmer, nouns, correct_stems):
 
 
 
-while True:
-    word = input("Enter a word to be stemmed: ")
-    print(stem(word))
-    print(len(stem(word)))
+# while True:
+    # word = input("Enter a word to be stemmed: ")
+    # print(stem(word))
+    # print(len(stem(word)))
 
 
 
