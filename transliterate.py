@@ -26,4 +26,6 @@ def reverse_transliterate(word):
             i += 1
     return transliterated_text
 
-################################################
+# while True:
+#         word  = input("val")
+#         print(transliterate(word))
