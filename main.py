@@ -4,8 +4,8 @@ from tkinter.font import Font
 from stemmer import stem 
 def display_output():
     input_text = entry.get()
-    
-    output_label.config(text=f"Output: {stem(input_text)}")
+    stemW,rootW = stem(input_text)
+    output_label.config(text=f"Stem: {stemW} \nRoot: {rootW}")
 
 # Create the main window
 root = tk.Tk()
@@ -23,7 +23,7 @@ style.configure("TButton", padding=10, font=("Helvetica", 16), relief="raised", 
 style.map("TButton", background=[('active', '#45a049')])
 
 # Label styling
-style.configure("TLabel", font=("Helvetica", 14))
+style.configure("TLabel", font=("Helvetica", 20))
 
 # Create a frame for the input area with rounded edges
 frame = ttk.Frame(root, padding=20)
@@ -34,7 +34,7 @@ entry = ttk.Entry(frame, width=50)
 entry.pack(pady=10)
 
 # Set a larger font directly on the entry widget
-entry_font = Font(family="Helvetica", size=20)
+entry_font = Font(family="Helvetica", size=18)
 entry.config(font=entry_font)
 
 # Create a button to submit the input
@@ -44,6 +44,7 @@ submit_button.pack(pady=5)
 # Create a label to display the output
 output_label = ttk.Label(root, text="Stem: ")
 output_label.pack(pady=10)
+
 
 # Run the application
 root.mainloop()
