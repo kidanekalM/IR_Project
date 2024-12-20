@@ -19,13 +19,15 @@ def stem(word):
             
     for inf in infix:
         if inf in word:
-            word = word.replace(inf, "")
+            root = word.replace(inf, "")
             # print("word")
     if word in exceptions.keys():
         word = exceptions[word]
 
-    word = reverse_transliterate(word)
-    return word
+    stemWord = reverse_transliterate(word)
+    rootWord = reverse_transliterate(root)
+    
+    return stemWord,rootWord
 
 def measure_accuracy(stemmer, nouns, correct_stems): 
     predicted_stems = [transliterate(stemmer(noun)) for noun in nouns] 
