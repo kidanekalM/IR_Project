@@ -11,7 +11,8 @@ prefix= [
 
     ]
 suffix= [
-        "ka",# posession men / you did 
+        "ke",# posession men / you did 
+        # "ka",# posession men / you did 
         "ni",
         "ye", # posession ~ mine
         "ki", # posession women / you did 
@@ -37,6 +38,7 @@ suffix= [
         "an", # plural men 3rd person
         "at",# plural who performs an action for women 3rd person
         "o",
+        "an"
         
     ]
 infix = [
