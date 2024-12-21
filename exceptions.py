@@ -4,5 +4,6 @@ exceptions={
     "aIbag":"beg",
     "abagI":"beg",
     "anabst":"anbesa",
-    "melaIkt":"melak"
+    "melaIkt":"melak",
+    "asm":"sm"
 }
