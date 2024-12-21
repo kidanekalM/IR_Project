@@ -17,13 +17,14 @@ def stem(word):
             word = word[len(pre):]
             # print("pre",word)
             
-    for inf in infix:
-        if inf in word:
-            root = word.replace(inf, "")
-            # print("word")
     if word in exceptions.keys():
         word = exceptions[word]
-
+    root = word
+    for inf in infix:
+        # if inf in word:
+        root = root.replace(inf, "")
+        # print(word,)
+    
     stemWord = reverse_transliterate(word)
     rootWord = reverse_transliterate(root)
     
