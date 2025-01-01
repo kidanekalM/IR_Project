@@ -2,6 +2,9 @@ import tkinter as tk
 from tkinter import ttk
 from tkinter.font import Font
 from stemmer import stem 
+
+#corpus collection > Tokenization > stopowrd removal > stemmer > IR structure > UI  
+
 def display_output():
     input_text = entry.get()
     stemW,rootW = stem(input_text)
