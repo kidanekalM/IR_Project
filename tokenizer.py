@@ -1,16 +1,9 @@
 
+import re
 def tokenizer( string_document,sentence_sep="።",word_sep=" "):
-    string_document = string_document.replace('0',"")
-    string_document = string_document.replace('1',"")
-    string_document = string_document.replace('2',"")
-    string_document = string_document.replace('3',"")
-    string_document = string_document.replace('4',"")
-    string_document = string_document.replace('5',"")
-    string_document = string_document.replace('6',"")
-    string_document = string_document.replace('7',"")
-    string_document = string_document.replace('8',"")
-    string_document = string_document.replace('9',"")
-    string_document = string_document.replace('-',"")
+
+    string_document = re.sub(r'[0-9\-]', '', string_document)
+
     sentences = string_document.split(sentence_sep)
     words = []
     for sentence in sentences:
