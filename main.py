@@ -1,9 +1,15 @@
 import tkinter as tk
 from tkinter import ttk
 from tkinter.font import Font
-from stemmer import stem 
+
+from psalms_notes import psalms_notes
+from tokenizer import tokenizer
+from stopword import remove_stopword
+from stemmer import stem
+
 
 #corpus collection > Tokenization > stopowrd removal > stemmer > IR structure > UI  
+
 
 def display_output():
     input_text = entry.get()
