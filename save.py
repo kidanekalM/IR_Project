@@ -28,7 +28,8 @@ for psalm_num in range(1, 151):
     
     if note_div:
         # Get the text content of the note and add it to the list
-        notes.append(note_div.get_text(strip=True))
+        note_text = note_div.get_text(strip=True)
+        notes.append({'doc_id': psalm_num, 'text': note_text})
 
 # Save the notes to a Python file with utf-8 encoding
 with open('psalms_notes.py', 'w', encoding='utf-8') as file:
