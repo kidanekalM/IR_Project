@@ -7,9 +7,7 @@ from tokenizer import tokenizer
 from stopword import remove_stopword
 from stemmer import stem
 
-
-#corpus collection > Tokenization > stopowrd removal > stemmer > IR structure > UI  
-
+#corpus collection > Tokenization > stopowrd removal > stemmer > Weighted Index > Remove terms > Query > UI  
 
 def display_output():
     input_text = entry.get()
