@@ -3,6 +3,12 @@ from nouns import nouns
 from affixes import prefix, suffix, infix
 from exceptions import exceptions
 
+def stem_list(list_of_words):
+    stemmed_list = []
+    for word in list_of_words:
+        stemword,rootword = stem(word)
+        stemmed_list.append(stemword)
+    return stemmed_list
 def stem(word):
     word = transliterate(word)
     print(word)
