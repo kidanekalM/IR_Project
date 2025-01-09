@@ -11,12 +11,12 @@ def stem_list(list_of_words):
     return stemmed_list
 def stem(word):
     word = transliterate(word)
-    print(word)
+    # print(word)
     
     for suf in suffix:
         if word.endswith(suf):
             word = word[:-len(suf)]
-            print("suf",word)
+            # print("suf",word)
             
     for pre in prefix:
         if word.startswith(pre):
