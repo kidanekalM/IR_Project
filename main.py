@@ -21,10 +21,11 @@ for psalm in psalms_notes:
 
 inverted_index = create_index_with_weights(stemmed_tokens)
 
-with open('inverted_index.py','w', encoding='utf-8') as file:
-    file.write(f"inverted_index = {inverted_index}")
+# with open('inverted_index.py','w', encoding='utf-8') as file:
+    # file.write(f"inverted_index = {inverted_index}")
      
     # if count > 1:  break; count += 1 
 
+from inverted_index import inverted_index
+print(inverted_index['ወሬዛ'])
 
-# [print(element) for element in create_index_with_weights(stemmed_tokens)]
