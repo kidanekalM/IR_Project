@@ -19,8 +19,10 @@ def create_index_with_weights(stemmed_tokens):
         
         for token, freq in term_freq.items():
             # if (inverted_index[token]):
-            inverted_index.setdefault(token,[(doc_id,freq)])
-            inverted_index[token].append((doc_id,freq))
+            try:
+                inverted_index[token].append((doc_id,freq))
+            except:
+                inverted_index.setdefault(token,[(doc_id,freq)])
             
 
             doc_freq[token] += 1
