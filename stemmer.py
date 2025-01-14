@@ -1,5 +1,4 @@
 from transliterate import transliterate, reverse_transliterate
-from nouns import nouns
 from affixes import prefix, suffix, infix
 from exceptions import exceptions
 
