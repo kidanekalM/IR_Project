@@ -2,13 +2,18 @@ import streamlit as st
 from inverted_index import inverted_index
 from psalms_notes import psalms_notes
 from matching import matching
+from tokenizer import tokenizer
+from stemmer import stem_list
+from stopword import remove_stopwords
+
+def preprocess_query(query):
+    return stem_list(remove_stopwords(tokenizer(query)))
 
 def perform_search(query):
-    # Use the matching function to get results based on the query and inverted index
-    results = matching(query, inverted_index)
+    results = matching(preprocess_query(query), inverted_index)
     return results
 
-query = st.text_input('ግእዝን ፈልግ')
+query = st.text_input('ግእዝ')
 
 if query:
     results = perform_search(query)
