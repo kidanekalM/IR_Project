@@ -11,8 +11,7 @@ def cosine_similarity(v1, v2):
     dot_product = np.dot(v1, v2)
     return dot_product / (norm_v1 * norm_v2)
 
-def matching(query, inverted_index):
-    query_tokens = query.split()
+def matching(query_tokens, inverted_index):
     query_vector = np.zeros(len(inverted_index))
     doc_scores = defaultdict(float)
     
