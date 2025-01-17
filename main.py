@@ -30,8 +30,7 @@ def preprocess():
      
     return inverted_index
 
-# print(matching('ወእመአኮ ከመ ወሬዛ ሃየል',inverted_index))
-
+preprocess()
 
 result = subprocess.run(['streamlit', 'run', 'ui.py'], capture_output=True, text=True)
 
