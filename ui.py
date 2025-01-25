@@ -5,8 +5,7 @@ from matching import matching
 from tokenizer import tokenizer
 from stemmer import stem_list
 from stopword import remove_stopwords
-from evaluation import precision, recall
-
+from evaluation import precision, recall,f1
 # Assuming these functions are defined elsewhere in your code
 def preprocess_query(query):
     return stem_list(remove_stopwords(tokenizer(query)))
@@ -15,16 +14,19 @@ def perform_search(query):
     results = matching(preprocess_query(query), inverted_index)
     return results
 
-query = st.text_input('ግእዝ')
+query = st.text_input('ግእዝ',key="query_input")
 
 # Initialize a counter for relevant documents
+total_rel_input = st.sidebar.empty()
 relevant_counter = st.sidebar.empty()  # Placeholder for the counter display
 precision_disp = st.sidebar.empty()  # Placeholder for the counter display
 recall_disp = st.sidebar.empty()  # Placeholder for the counter display
+f1_disp = st.sidebar.empty()  # Placeholder for the counter display
 relevant_count = 0
-
+topRelevant = 5
 if query:
     results = perform_search(query)
+    results = results[:topRelevant]
     retrieved_count = len(results)
     st.write(f"ክመዝገብ '{query}':")
     for doc_id, similarity in results:
@@ -40,8 +42,10 @@ if query:
 
             # Display the counter
             relevant_counter.text(f"Relevant Documents: {relevant_count}")
+            total_relevant =  int(total_rel_input.text_input("Total Relevant",value=150,key=f'total_rel_input{doc_id}'))
             precision_disp.text(f"Precision: {(precision(relevant_count,retrieved_count))*100}%")
-            recall_disp.text(f"Recall Not yet calculated : {(precision(relevant_count,retrieved_count))*100}%")
+            recall_disp.text(f"Recall  : {(recall(relevant_count,total_relevant))*100}%")
+            f1_disp.text(f"f1 - measure : {(f1(relevant_count,retrieved_count,total_relevant))*100}%")
 
             # Update styling based on relevance
             expander_style = "border: 3px solid green;" if relevant else "border: 1px solid black;"
