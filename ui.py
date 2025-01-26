@@ -1,10 +1,10 @@
 import streamlit as st
-from inverted_index import inverted_index
-from psalms_notes import psalms_notes
 from matching import matching
-from tokenizer import tokenizer
 from stemmer import stem_list
+from tokenizer import tokenizer
+from psalms_notes import psalms_notes
 from stopword import remove_stopwords
+from inverted_index import inverted_index
 from evaluation import precision, recall,f1
 # Assuming these functions are defined elsewhere in your code
 def preprocess_query(query):
@@ -28,7 +28,7 @@ if query:
     results = perform_search(query)
     results = results[:topRelevant]
     retrieved_count = len(results)
-    st.write(f"ክመዝገብ '{query}':")
+    st.write(f"ከመዝገብ '{query}':")
     for doc_id, similarity in results:
         note = next((note for note in psalms_notes if note['doc_id'] == doc_id), None)
         if note:
@@ -48,7 +48,7 @@ if query:
             f1_disp.text(f"f1 - measure : {(f1(relevant_count,retrieved_count,total_relevant))*100}%")
 
             # Update styling based on relevance
-            expander_style = "border: 3px solid green;" if relevant else "border: 1px solid black;"
+            expander_style = "border: 3px solid lightgreen; border-radius:5px; padding:.5rem;" if relevant else "border-radius:5px; padding:.5rem; border: 1px solid black;"
 
             # Streamlit doesn't directly support custom CSS at the component level,
             # use Markdown for the container style
