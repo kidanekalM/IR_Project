@@ -52,6 +52,6 @@ if query:
 
             # Streamlit doesn't directly support custom CSS at the component level,
             # use Markdown for the container style
-            with st.expander(f"Document {doc_id} (Similarity: {similarity:.4f})",
-                             expanded=True):
+            with st.expander(f" {note['text'][:20]}...  (Similarity: {similarity:.4f})",
+                             expanded=False):
                 st.markdown(f"<div style='{expander_style}'>{note['text']}</div>", unsafe_allow_html=True)
