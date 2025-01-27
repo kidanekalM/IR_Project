@@ -23,7 +23,7 @@ precision_disp = st.sidebar.empty()  # Placeholder for the counter display
 recall_disp = st.sidebar.empty()  # Placeholder for the counter display
 f1_disp = st.sidebar.empty()  # Placeholder for the counter display
 relevant_count = 0
-topRelevant = 5
+topRelevant = 10
 if query:
     results = perform_search(query)
     results = results[:topRelevant]
@@ -45,7 +45,7 @@ if query:
             total_relevant =  int(total_rel_input.text_input("Total Relevant",value=150,key=f'total_rel_input{doc_id}'))
             precision_disp.text(f"Precision: {(precision(relevant_count,retrieved_count))*100}%")
             recall_disp.text(f"Recall  : {(recall(relevant_count,total_relevant))*100}%")
-            f1_disp.text(f"f1 - measure : {(f1(relevant_count,retrieved_count,total_relevant))*100}%")
+            f1_disp.text(f"f1 - measure : {(f1(relevant_count,retrieved_count,total_relevant))}")
 
             # Update styling based on relevance
             expander_style = "border: 3px solid lightgreen; border-radius:5px; padding:.5rem;" if relevant else "border-radius:5px; padding:.5rem; border: 1px solid black;"
