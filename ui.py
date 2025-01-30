@@ -14,7 +14,7 @@ def perform_search(query):
     results = matching(preprocess_query(query), inverted_index)
     return results
 
-query = st.text_input('ግእዝ',key="query_input")
+query = st.text_input('በግእዝ ፈልግ',key="query_input")
 
 # Initialize a counter for relevant documents
 total_rel_input = st.sidebar.empty()
